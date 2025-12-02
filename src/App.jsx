@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import TopBottomChart from "./components/TopBottomChart";
+
+import RMPerformanceChart from "./components/RMPerformanceChart";
 
 const API = "https://dashboard-backend-cal7.onrender.com";
 
@@ -111,18 +114,18 @@ export default function App() {
           </p>
 
           <div className="mt-6 text-sm text-purple-200/80">
-            Chart will be added here (bar chart).
+          <TopBottomChart rows={rows} />
           </div>
         </div>
 
         {/* Module-wise */}
         <div className="rounded-big bg-bgCardSoft border border-accentBorder/40 px-6 py-5 shadow-card h-[350px]">
-          <h3 className="text-lg font-semibold">Module-wise Score for Selected Campus</h3>
+    <h3 className="text-lg font-semibold">RM Performance (Average Overall Score)</h3>
 
-          <div className="mt-6 text-sm text-purple-200/80">
-            Radar chart will be added next.
-          </div>
-        </div>
+    <div className="mt-6">
+        <RMPerformanceChart rows={rows} />
+    </div>
+</div>
 
       </div>
 
