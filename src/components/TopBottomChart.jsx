@@ -43,17 +43,30 @@ export default function TopBottomChart({ rows }) {
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => ` ${ctx.raw} / 30`,
+        },
+      },
     },
     scales: {
       x: {
-        ticks: { color: "#d8b4fe" },
+        ticks: { 
+          color: "#d8b4fe", 
+          font: { size: 11 },
+          maxRotation: 45,
+          minRotation: 45,
+        },
+        grid: { display: false },
       },
       y: {
         max: 30, // <<< Y AXIS OUT OF 30
         beginAtZero: true,
-        ticks: { color: "#d8b4fe" },
+        ticks: { color: "#d8b4fe", font: { size: 11 } },
         grid: { color: "rgba(255,255,255,0.1)" },
       },
     },

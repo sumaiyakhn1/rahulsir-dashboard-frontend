@@ -10,7 +10,7 @@ import {
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-export default function RMPerformanceHorizontal({ rows }) {
+export default function RMPerformanceChart({ rows }) {
   if (!rows || !rows.length) return <p className="text-purple-300">No data available</p>;
 
   // Group scores by RM
@@ -60,6 +60,8 @@ export default function RMPerformanceHorizontal({ rows }) {
 
   const options = {
     indexAxis: "y", // <<< HORIZONTAL BARS
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
       tooltip: {
@@ -72,11 +74,11 @@ export default function RMPerformanceHorizontal({ rows }) {
       x: {
         max: 30,
         beginAtZero: true,
-        ticks: { color: "#d8b4fe" },
+        ticks: { color: "#d8b4fe", font: { size: 11 } },
         grid: { color: "rgba(255,255,255,0.1)" },
       },
       y: {
-        ticks: { color: "#d8b4fe" },
+        ticks: { color: "#d8b4fe", font: { size: 11 } },
         grid: { display: false },
       },
     },
